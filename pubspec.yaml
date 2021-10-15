@@ -21,9 +21,11 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flashy_tab_bar: ^0.0.3
+  # flashy_tab_bar: ^0.0.3
   razorpay_flutter: ^1.2.3
   http: ^0.13.4
+  shared_preferences: ^2.0.8
+
   flutter:
     sdk: flutter
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vocab/pages/home.dart';
+import 'package:vocab/utils/wrapper.dart';
+
+import 'package:vocab/views/home.dart';
 
 void main() {
   runApp(MyApp());

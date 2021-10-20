@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:developer' as console;
 
+import 'package:vocab/views/home.dart';
+import 'package:vocab/views/login.dart';
+import '../views/payment.dart';
+
 class Wrapper extends StatefulWidget {
   const Wrapper({Key? key}) : super(key: key);
 
@@ -10,21 +14,28 @@ class Wrapper extends StatefulWidget {
 }
 
 class _WrapperState extends State<Wrapper> {
-  void checkAndGetCounter() async {
+  bool globalLoggedInStatus = false;
+
+  void checkLoggedIn() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.getInt('freeCounter');
+    var localLoggedInStatus = prefs.getBool('status');
+    if (localLoggedInStatus != null) {
+      setState(() {
+        globalLoggedInStatus = localLoggedInStatus;
+      });
+    }
   }
 
   @override
   void initState() {
+    checkLoggedIn();
     super.initState();
-    console.log('init');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Wrapper')),
+      body: globalLoggedInStatus ? HomePage() : Login(),
     );
   }
 }

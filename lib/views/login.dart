@@ -77,7 +77,7 @@ class _LoginState extends State<Login> {
                     // CREATING IMPLICIT FUNCTION BECAUSE EXPLICIT FUNCTIONS NOT WORKING
                     onPressed: () async {
                       var res = await http.post(
-                          Uri.parse('http://192.168.43.226:8000/user/login'),
+                          Uri.parse('http://10.0.2.2:8000/user/login'),
                           headers: <String, String>{
                             'Content-Type': 'application/json'
                           },
@@ -85,7 +85,11 @@ class _LoginState extends State<Login> {
                             'username': _usernameController.text,
                             'password': _passwordController.text
                           }));
-                      console.log(res.body);
+                      if (res.statusCode == 200) {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => HomePage()));
+                        console.log(res.body);
+                      }
                     }
                     // async {
                     //   // ADD A CONDITIONAL TO PROCESS LOGIN CREDS SERVER SIDE

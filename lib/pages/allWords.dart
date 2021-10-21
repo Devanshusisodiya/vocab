@@ -22,8 +22,8 @@ class _AllWordsState extends State<AllWords> {
   static List<dynamic> words = [];
 
   void _getData() async {
-    var res = await http
-        .get(Uri.parse('http://192.168.43.226:8000/word/getAllWords'));
+    var res =
+        await http.get(Uri.parse('http://10.0.2.2:8000/word/getAllWords'));
     var decode = jsonDecode(res.body);
     if (res.statusCode == 200) {
       setState(() {

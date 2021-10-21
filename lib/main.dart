@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vocab/utils/wrapper.dart';
 
 import 'package:vocab/views/home.dart';
+import 'package:vocab/views/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: Wrapper(),
+      home: Login(),
     );
   }
 }

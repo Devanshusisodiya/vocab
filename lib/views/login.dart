@@ -86,6 +86,11 @@ class _LoginState extends State<Login> {
                             'password': _passwordController.text
                           }));
                       if (res.statusCode == 200) {
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setBool('status', true);
+                        prefs.setString('username', _usernameController.text);
+
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => HomePage()));
                         console.log(res.body);

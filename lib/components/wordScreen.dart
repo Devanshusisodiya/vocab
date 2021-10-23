@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -14,8 +16,11 @@ class WordScreen extends StatefulWidget {
 class _WordScreenState extends State<WordScreen> {
   // GET CURRENT DATE AND SEND REQUEST BODY
 
-  // Future<void> _getWordData() async {
-  //   var res = await http.get(Uri.parse(''));
+  // void _getWordData() async {
+  //   var res = await http.post(Uri.parse('http://10.0.2.2:8000/word/getWord'),
+  //       headers: <String, String>{"Content-Type": "application/json"},
+  //       body: jsonEncode(<String, String>{"word": widget.word}));
+
   // }
 
   @override

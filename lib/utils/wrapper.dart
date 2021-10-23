@@ -28,8 +28,8 @@ class _WrapperState extends State<Wrapper> {
 
   @override
   void initState() {
-    checkLoggedIn();
     super.initState();
+    checkLoggedIn();
   }
 
   @override
